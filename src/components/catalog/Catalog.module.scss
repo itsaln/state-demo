@@ -1,3 +1,7 @@
 .catalog {
-  @apply tw-block;
+  @apply tw-flex tw-flex-wrap tw-items-center tw-mt-[24px];
+
+  .item {
+    @apply tw-bg-gray-600 tw-text-white tw-py-[5px] tw-px-[10px] tw-mr-[12px] tw-mb-[10px];
+  }
 }

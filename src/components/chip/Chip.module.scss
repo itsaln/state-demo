@@ -1,0 +1,15 @@
+.chip {
+  @apply tw-border tw-border-solid tw-rounded-[25px] tw-text-white tw-py-[5px] tw-px-[10px] tw-transition-opacity;
+
+  &:hover {
+    @apply tw-opacity-80;
+  }
+
+  &.primary {
+    @apply tw-bg-primary tw-border-primary;
+  }
+
+  &.ghost {
+    @apply tw-bg-transparent tw-border-white/50;
+  }
+}

@@ -5,6 +5,8 @@ import {
 	TypeEnum
 } from './constants'
 
+import { Chip } from '@/components/chip/Chip'
+
 import styles from './Filter.module.scss'
 
 interface IFilter {
@@ -14,13 +16,19 @@ interface IFilter {
 	setCourseDirection: (value: DirectionEnum) => void
 }
 
-export function Filter({ courseType, courseDirection, setCourseType, setCourseDirection }: IFilter) {
+export function Filter({
+	courseType,
+	courseDirection,
+	setCourseType,
+	setCourseDirection
+}: IFilter) {
 	return (
 		<div className={styles.filter}>
 			<div className={styles.row}>
 				<h3 className={styles.title}>Тип обучения</h3>
 				{filterByTypeVariants.map((variant) => (
 					<Chip
+						className='tw-mx-[4px]'
 						key={variant.id}
 						color={variant.value === courseType ? 'primary' : 'ghost'}
 						onClick={() => setCourseType(variant.value)}
@@ -34,6 +42,7 @@ export function Filter({ courseType, courseDirection, setCourseType, setCourseDi
 				<h3 className={styles.title}>Направление</h3>
 				{filterByDirectionVariants.map((variant) => (
 					<Chip
+						className='tw-mx-[4px]'
 						key={variant.name}
 						color={variant.value === courseDirection ? 'primary' : 'ghost'}
 						onClick={() => setCourseDirection(variant.value)}

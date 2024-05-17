@@ -10,7 +10,7 @@ export default function Home() {
 	const setDirection = (value: DirectionEnum) => {}
 
 	return (
-		<>
+		<div className='tw-flex tw-flex-col tw-justify-center tw-w-[600px] tw-h-screen tw-py-[40px] tw-mx-auto'>
 			<Filter
 				courseType={TypeEnum.COURSE}
 				courseDirection={DirectionEnum.FRONTEND}
@@ -22,6 +22,6 @@ export default function Home() {
 				courseType={TypeEnum.COURSE}
 				courseDirection={DirectionEnum.FRONTEND}
 			/>
-		</>
+		</div>
 	)
 }

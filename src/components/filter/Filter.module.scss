@@ -1,3 +1,11 @@
 .filter {
   @apply tw-block;
+
+  .row {
+    @apply tw-mb-[16px];
+  }
+
+  .title {
+    @apply tw-inline-block tw-font-bold tw-mr-[10px];
+  }
 }

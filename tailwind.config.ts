@@ -15,7 +15,9 @@ const config: Config = {
 			white: twColors.white,
 			black: twColors.black,
 			transparent: twColors.transparent,
-			background: '#333333'
+			background: '#333333',
+			primary: '#6C38CC',
+			gray: twColors.gray
 		},
 		extend: {
 			zIndex: {

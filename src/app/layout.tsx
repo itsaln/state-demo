@@ -3,7 +3,7 @@ import { Montserrat } from 'next/font/google'
 
 import '@/assets/scss/globals.scss'
 
-const inter = Montserrat({ subsets: ['latin'] })
+const montserrat = Montserrat({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
 	title: 'State demo',
@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='en'>
-			<body className={inter.className}>{children}</body>
+			<body className={montserrat.className}>{children}</body>
 		</html>
 	)
 }
