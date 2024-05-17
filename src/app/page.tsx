@@ -1,9 +1,10 @@
 'use client'
 
+import { useState } from 'react'
+
 import { Catalog } from '@/components/catalog/Catalog'
 import { Filter } from '@/components/filter/Filter'
 import { TypeEnum, DirectionEnum } from '@/components/filter/constants'
-import { useState } from 'react'
 
 export default function Home() {
 	const [courseType, setCourseType] = useState(TypeEnum.COURSE)
