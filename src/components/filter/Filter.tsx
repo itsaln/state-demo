@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import {
 	DirectionEnum,
 	filterByDirectionVariants,
@@ -12,43 +13,42 @@ import styles from './Filter.module.scss'
 interface IFilter {
 	courseType: TypeEnum
 	courseDirection: DirectionEnum
-	setCourseType: (value: TypeEnum) => void
-	setCourseDirection: (value: DirectionEnum) => void
 }
 
-export function Filter({
-	courseType,
-	courseDirection,
-	setCourseType,
-	setCourseDirection
-}: IFilter) {
+export function Filter({ courseType, courseDirection }: IFilter) {
 	return (
 		<div className={styles.filter}>
 			<div className={styles.row}>
 				<h3 className={styles.title}>Тип обучения</h3>
 				{filterByTypeVariants.map((variant) => (
-					<Chip
-						className='tw-mx-[4px]'
+					<Link
 						key={variant.id}
-						color={variant.value === courseType ? 'primary' : 'ghost'}
-						onClick={() => setCourseType(variant.value)}
+						href={{ query: { type: variant.value, dir: courseDirection } }}
 					>
-						{variant.name}
-					</Chip>
+						<Chip
+							className='tw-mx-[4px]'
+							color={variant.value === courseType ? 'primary' : 'ghost'}
+						>
+							{variant.name}
+						</Chip>
+					</Link>
 				))}
 			</div>
 
 			<div className={styles.row}>
 				<h3 className={styles.title}>Направление</h3>
 				{filterByDirectionVariants.map((variant) => (
-					<Chip
-						className='tw-mx-[4px]'
+					<Link
 						key={variant.name}
-						color={variant.value === courseDirection ? 'primary' : 'ghost'}
-						onClick={() => setCourseDirection(variant.value)}
+						href={{ query: { type: courseType, dir: variant.value } }}
 					>
-						{variant.name}
-					</Chip>
+						<Chip
+							className='tw-mx-[4px]'
+							color={variant.value === courseDirection ? 'primary' : 'ghost'}
+						>
+							{variant.name}
+						</Chip>
+					</Link>
 				))}
 			</div>
 		</div>
