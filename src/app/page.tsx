@@ -30,18 +30,32 @@ export default function Home() {
 		[searchParams]
 	)
 
+	function convertToType(str: string | null): TypeEnum | null {
+		if (Object.values(TypeEnum).includes(str as TypeEnum)) {
+			return str as TypeEnum
+		}
+		return null
+	}
+
+	function convertToDir(str: string | null): DirectionEnum | null {
+		if (Object.values(DirectionEnum).includes(str as DirectionEnum)) {
+			return str as DirectionEnum
+		}
+		return null
+	}
+
 	return (
 		<div className='tw-flex tw-flex-col tw-justify-center tw-w-[600px] tw-h-screen tw-py-[40px] tw-mx-auto'>
 			<Filter
-				courseType={searchParams.get('type') ?? TypeEnum.COURSE}
-				courseDirection={searchParams.get('dir') ?? DirectionEnum.FRONTEND}
+				courseType={convertToType(searchParams.get('type')) ?? TypeEnum.COURSE}
+				courseDirection={convertToDir(searchParams.get('dir')) ?? DirectionEnum.FRONTEND}
 				setCourseType={setType}
 				setCourseDirection={setDirection}
 			/>
 
 			<Catalog
-				courseType={searchParams.get('type') ?? TypeEnum.COURSE}
-				courseDirection={searchParams.get('dir') ?? DirectionEnum.FRONTEND}
+				courseType={convertToType(searchParams.get('type')) ?? TypeEnum.COURSE}
+				courseDirection={convertToDir(searchParams.get('dir')) ?? DirectionEnum.FRONTEND}
 			/>
 		</div>
 	)
