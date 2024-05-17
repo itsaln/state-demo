@@ -12,8 +12,12 @@ export default function Home() {
 	const pathname = usePathname()
 	const searchParams = useSearchParams()
 
-	const [courseType, setCourseType] = useState(TypeEnum.COURSE)
-	const [courseDirection, setCourseDirection] = useState(DirectionEnum.FRONTEND)
+	const [courseType, setCourseType] = useState(
+		searchParams.get('type') ?? TypeEnum.COURSE
+	)
+	const [courseDirection, setCourseDirection] = useState(
+		searchParams.get('dir') ?? DirectionEnum.FRONTEND
+	)
 
 	const setType = (value: TypeEnum) => {
 		setCourseType(value)
